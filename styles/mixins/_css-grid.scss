@@ -1,0 +1,49 @@
+@mixin grid(
+  $columns: 12,
+  $rows: 1,
+  $col-gap: 24px,
+  $row-gap: 0,
+  $width: "breakpoints"
+) {
+  display: grid;
+  height: auto;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-template-rows: repeat($rows, 1fr);
+  column-gap: $col-gap;
+  row-gap: $row-gap;
+  @media (max-width: 576px) {
+    column-gap: 15px;
+  }
+  @if $width == "full" {
+    width: 100%;
+  } @else {
+    @include breakpoints;
+  }
+}
+
+@mixin breakpoints {
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 576px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
+  @media (min-width: 1600px) {
+    max-width: 1500px;
+  }
+}

@@ -1,0 +1,28 @@
+.ico-link {
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+  padding-left: 30px;
+  position: relative;
+  &:hover {
+    span {
+      &::before {
+        width: 100%;
+      }
+    }
+  }
+  img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 20px;
+    width: 20px;
+    object-fit: contain;
+  }
+  span {
+    @include hover-underline(orange, left);
+    color: black;
+  }
+}

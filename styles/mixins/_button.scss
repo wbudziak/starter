@@ -1,0 +1,17 @@
+@mixin button($bgc: orange, $color: white) {
+  background-color: $bgc;
+  color: $color;
+  display: block;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-align: center;
+  transition: 0.3s linear;
+  padding: 13px 15px;
+  font-size: 14px;
+  line-height: 24px;
+  border: 1px solid $bgc;
+  &:hover {
+    background-color: transparent;
+    color: $bgc;
+  }
+}

@@ -1,0 +1,30 @@
+@mixin hover-underline($bgc: $red, $start: left, $width: 100%, $height: 1px) {
+  position: relative;
+  &:hover {
+    &::before {
+      width: $width;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    width: 0%;
+    height: $height;
+    background-color: $bgc;
+    transition: 0.3s linear;
+    @if $start == center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @if $start == left {
+      left: 0%;
+    }
+    @if $start == right {
+      right: 0%;
+    }
+  }
+}
+
+// wywołanie np.
+// @include hover-underline($bgc: $red, $start: right);

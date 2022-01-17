@@ -1,0 +1,33 @@
+.accordion {
+  &:nth-child(1) {
+    margin-top: 0;
+  }
+  @include margin-top(10px);
+  padding-left: 20px;
+  position: relative;
+  &.active {
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    background-color: black;
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+    transition: 0.3s;
+  }
+  &__text {
+    cursor: pointer;
+    font-weight: 500;
+  }
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+}
